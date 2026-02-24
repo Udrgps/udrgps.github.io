@@ -1,0 +1,422 @@
+/* ===== RESET ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body{
+  background:#050505;
+  color:#fff;
+}
+
+/* ===== NAVBAR ===== */
+header{
+  position:fixed;
+  width:100%;
+  top:0;
+  z-index:100;
+  background:rgba(0,0,0,.8); /* Un poco más oscuro para leer mejor */
+  backdrop-filter: blur(10px);
+}
+
+.nav{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 20px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-size:25px;
+  font-weight:800;
+}
+
+.logo .udr{ color:#ffffff; }
+.logo .gps {
+  color: #c71010;
+  font-weight: 900;
+  /* Esto crea el borde blanco sólido alrededor de cada letra */
+  -webkit-text-stroke: 1px #ffffff; 
+  /* Esto crea el resplandor blanco potente de fondo */
+  text-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.8), 
+    0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+.logo img{
+  width:150px;
+  height:auto;
+}
+
+.nav-actions{
+  display:flex;
+  gap:15px;
+}
+
+/* BOTONES */
+.nav a, .btn {
+  background:#ff2a2a;
+  padding:10px 20px;
+  border-radius:25px;
+  color:#fff;
+  font-weight:600;
+  text-decoration:none;
+  transition:all .3s ease;
+}
+
+.nav a:hover, .btn:hover {
+  background:#ffd500;
+  color:#000;
+  box-shadow:0 0 15px rgba(255,213,0,.6);
+}
+
+/* ===== HERO ===== */
+.hero{
+  min-height:100vh;
+  background:
+    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.9)),
+    url("https://images.unsplash.com/photo-1503376780353-7e6692767b70");
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+  padding:100px 20px;
+}
+
+.hero-content{
+  max-width:1200px;
+  margin:auto;
+}
+
+.hero h1{
+  font-size:48px;
+  max-width:700px;
+  margin-bottom: 20px;
+}
+
+.hero p{
+  max-width:600px;
+  margin-bottom:30px;
+  color:#ccc;
+  font-size: 1.1rem;
+}
+
+/* ===== SOLUCIONES ===== */
+section{ padding:100px 20px; }
+.wrap{ max-width:1200px; margin:auto; }
+
+.soluciones-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+}
+
+.card{
+  height:320px;
+  border-radius:18px;
+  overflow:hidden;
+  position:relative;
+  transition:.4s;
+}
+
+/* ===== Luz roja debajo de la targeta ===== */
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 30px rgba(255, 42, 42, 0.8);
+}
+
+.gps1{ background:url("https://images.unsplash.com/photo-1503376780353-7e6692767b70") center/cover; }
+.gps2{ background:url("https://images.unsplash.com/photo-1519389950473-47ba0277781c") center/cover; }
+.gps3{ background:url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80") center/cover; }
+
+.overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,0.9),rgba(0,0,0,0.2));
+  padding:25px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+}
+
+/* ===== CTA & WHATSAPP ===== */
+.cta{
+  background:linear-gradient(135deg,#855151,#b30000);
+  text-align:center;
+}
+
+.cta a {
+  background: #25d366 !important;
+  padding: 15px 35px;
+  border-radius: 30px;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: 0.3s;
+}
+
+.cta a:hover {
+  background: #128c7e !important;
+  transform: scale(1.05);
+}
+
+/* ===== FOOTER ===== */
+footer{
+  background:#000;
+  padding:40px 20px;
+  text-align:center;
+  color:#aaa;
+}
+
+/* ===== RESPONSIVE (CELULARES) ===== */
+@media (max-width:768px){
+  .nav{
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .logo img { width: 110px; }
+  .logo { font-size: 20px; }
+
+  .nav-actions {
+    width: 100%;
+    margin-top: 15px;
+  }
+  
+  .nav-actions a { width: 100%; text-align: center; }
+
+  .hero {
+    padding-top: 180px; /* Aquí está el ajuste para que no se tape */
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    margin: 20px auto;
+  }
+}
+
+.subtitle {
+  color: #aaa;
+  max-width: 700px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+/* Color rojo para el botón de Más Información */
+.overlay summary {
+  color: #ff2a2a;
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none; /* Quita la flecha */
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* Quita la flechita en Chrome/Safari */
+.overlay summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Estilo para el cuadrito de información que aparece */
+.info-extra {
+  background: rgba(0, 0, 0, 0.85);
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 8px;
+  font-size: 13px;
+  color: #fff;
+  border-left: 3px solid #ff2a2a;
+}
+
+.btn-whatsapp {
+  background: #25d366 !important;
+  color: #fff;
+  padding: 15px 35px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 700;
+  display: inline-flex; /* Alinea icono y texto */
+  align-items: center;
+  gap: 10px; /* Espacio entre el icono y la palabra */
+  margin-top: 10px;
+  font-size: 1.2rem;
+  transition: 0.3s;
+}
+
+.btn-whatsapp i {
+  font-size: 1.5rem; /* El icono un poquito más grande que la letra */
+}
+
+.btn-whatsapp:hover {
+  background: #128c7e !important;
+  transform: scale(1.05);
+}
+/* Estilo del Bot Flotante */
+.bot-flotante {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* Imagen del Bot */
+.bot-flotante img {
+  width: 80px; /* Ajusta el tamaño aquí */
+  height: auto;
+  cursor: pointer;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+  transition: transform 0.3s ease;
+}
+
+.bot-flotante img:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Globito de mensaje sobre el bot */
+.mensaje-bot {
+  background: white;
+  color: #333;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  position: relative;
+  border: 1px solid #ff2a2a;
+}
+
+/* Triangulito del globo de texto */
+.mensaje-bot::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  right: 20px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid white;
+}
+
+/* Imagen del Bot con bordes redondeados */
+/* ===== BOT FLOTANTE UDR GPS ===== */
+.bot-flotante {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* Imagen del Bot: Círculo perfecto y tamaño controlado */
+.bot-flotante img {
+  width: 80px; 
+  height: 80px;
+  object-fit: cover; 
+  border-radius: 50%; 
+  border: 3px solid #ffffff;
+  box-shadow: 0 5px 15px rgba(255, 42, 42, 0.5); 
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.bot-flotante img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(255, 42, 42, 0.8);
+  border-color: #ff2a2a;
+}
+
+/* Globito de mensaje */
+.mensaje-bot {
+  background: white;
+  color: #333;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  position: relative;
+  border: 1px solid #ff2a2a;
+  animation: float 3s ease-in-out infinite; /* Animación de rebote suave */
+}
+
+/* Triangulito del globo */
+.mensaje-bot::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  right: 25px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid white;
+}
+
+/* Animación para que el globito llame la atención */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Ocultar globito en celulares muy pequeños para no tapar contenido */
+@media (max-width: 480px) {
+  .mensaje-bot { display: none; }
+  .bot-flotante img { width: 70px; height: 70px; }
+}
+
+/* ===== ESTILOS DEL MAPA NORMAL ===== */
+.mapa-container {
+    margin-top: 30px;
+    border: 1px solid #ddd; /* Borde suave en lugar de negro */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra natural */
+}
+
+/* Quitamos cualquier filtro que ensucie los colores del mapa */
+.mapa-container iframe {
+    display: block;
+    filter: none !important; 
+}
+
+/* Espaciado del botón de cotización debajo del mapa */
+.cta-simple {
+    margin-top: 30px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+/* Estilo del botón para que resalte */
+.cta-simple .btn {
+    display: inline-block;
+    background: #ff2a2a;
+    color: #fff;
+    padding: 15px 35px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.cta-simple .btn:hover {
+    background: #ffd500;
+    color: #000;
+}
