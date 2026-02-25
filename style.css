@@ -383,18 +383,46 @@ footer{
 }
 
 /* ===== ESTILOS DEL MAPA NORMAL ===== */
-.mapa-container {
-    margin-top: 30px;
-    border: 1px solid #ddd; /* Borde suave en lugar de negro */
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra natural */
+/* Esto asegura que el contenedor use todo el ancho y centre el contenido */
+/* ===== ESTILOS DEL MAPA CORREGIDO ===== */
+.ubicacion {
+    background: #050505; /* Asegura que el fondo coincida */
+    padding: 80px 20px;
 }
 
-/* Quitamos cualquier filtro que ensucie los colores del mapa */
+/* ===== ESTILO DEL MAPA (ESTADO NORMAL) ===== */
+.mapa-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 40px auto 0 auto;
+    overflow: hidden;
+    border-radius: 15px;
+    
+    /* Borde gris oscuro casi invisible al principio */
+    border: 2px solid #333; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Sombra normal sin color */
+    
+    /* Esta línea es clave para que el brillo aparezca suavemente */
+    transition: all 0.4s ease-in-out; 
+}
+
+/* ===== EFECTO AL COLOCAR EL CURSOR (HOVER) ===== */
+.mapa-container:hover {
+    /* El borde cambia a rojo brillante */
+    border-color: #ff2a2a; 
+    
+    /* El brillo como el de "GPS" y el Bot */
+    box-shadow: 0 0 20px rgba(255, 42, 42, 0.6), 
+                0 0 40px rgba(255, 42, 42, 0.4);
+    
+    /* Un ligero aumento de tamaño para que se sienta vivo */
+    transform: scale(1.02); 
+}
+
+/* Asegúrate de que el iframe ocupe todo el ancho para evitar el cuadro negro */
 .mapa-container iframe {
+    width: 100% !important;
     display: block;
-    filter: none !important; 
 }
 
 /* Espaciado del botón de cotización debajo del mapa */
@@ -419,4 +447,29 @@ footer{
 .cta-simple .btn:hover {
     background: #ffd500;
     color: #000;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: bold;
+  list-style: none; /* Quita la flecha por defecto si quieres poner la tuya */
+}
+summary::-webkit-details-marker {
+  display: none; /* Quita la flecha en Safari/Chrome */
+}
+
+.btn-login-udr {
+    background: transparent !important;
+    border: 2px solid #ff2a2a;
+    padding: 10px 20px;
+    border-radius: 25px;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-login-udr:hover {
+    background: #ff2a2a !important;
+    box-shadow: 0 0 15px rgba(255, 42, 42, 0.4);
 }
