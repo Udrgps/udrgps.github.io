@@ -217,13 +217,41 @@ footer{
 }
 
 /* Color rojo para el botón de Más Información */
+/* ===== ESTILO DE BOTÓN PARA "MÁS INFORMACIÓN" ===== */
 .overlay summary {
-  color: #ff2a2a;
-  font-weight: 700;
-  cursor: pointer;
-  list-style: none; /* Quita la flecha */
-  margin-top: 10px;
-  font-size: 14px;
+    display: inline-block;
+    background: #ff2a2a; /* Rojo UDR */
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    list-style: none; /* Quita la flecha */
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    text-align: center;
+}
+
+/* Efecto al pasar el mouse */
+.overlay summary:hover {
+    background: #ffd500; /* Cambia a amarillo como tus otros botones */
+    color: #000;
+    box-shadow: 0 0 15px rgba(255, 213, 0, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Quita la flechita molesta en Chrome/Safari */
+.overlay summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Ajuste para que el botón no se vea pegado cuando se abre */
+details[open] summary {
+    margin-bottom: 10px;
+    background: #444; /* Cambia de color cuando está abierto */
 }
 
 /* Quita la flechita en Chrome/Safari */
@@ -390,7 +418,6 @@ footer{
     padding: 80px 20px;
 }
 
-/* ===== ESTILO DEL MAPA (ESTADO NORMAL) ===== */
 .mapa-container {
     width: 100%;
     max-width: 1100px;
@@ -398,31 +425,19 @@ footer{
     overflow: hidden;
     border-radius: 15px;
     
-    /* Borde gris oscuro casi invisible al principio */
-    border: 2px solid #333; 
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Sombra normal sin color */
-    
-    /* Esta línea es clave para que el brillo aparezca suavemente */
-    transition: all 0.4s ease-in-out; 
-}
-
-/* ===== EFECTO AL COLOCAR EL CURSOR (HOVER) ===== */
-.mapa-container:hover {
-    /* El borde cambia a rojo brillante */
-    border-color: #ff2a2a; 
-    
-    /* El brillo como el de "GPS" y el Bot */
+    /* El "Brillo" como el de GPS y el Bot */
+    border: 2px solid #ff2a2a; /* Borde rojo sólido */
     box-shadow: 0 0 20px rgba(255, 42, 42, 0.6), 
-                0 0 40px rgba(255, 42, 42, 0.4);
+                0 0 40px rgba(255, 42, 42, 0.3); /* Resplandor exterior */
     
-    /* Un ligero aumento de tamaño para que se sienta vivo */
-    transform: scale(1.02); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Asegúrate de que el iframe ocupe todo el ancho para evitar el cuadro negro */
-.mapa-container iframe {
-    width: 100% !important;
-    display: block;
+/* Efecto opcional: brilla más cuando pasas el ratón */
+.mapa-container:hover {
+    transform: scale(1.01);
+    box-shadow: 0 0 30px rgba(255, 42, 42, 0.8), 
+                0 0 60px rgba(255, 42, 42, 0.4);
 }
 
 /* Espaciado del botón de cotización debajo del mapa */

@@ -154,6 +154,21 @@
         <img src="botudr.jpeg" alt="Chat con UDR GPS">
     </a>
 </div>
+<script>
+  // Seleccionamos todos los detalles
+  const todosLosDetails = document.querySelectorAll('details');
+
+  todosLosDetails.forEach((targetDetail) => {
+    targetDetail.addEventListener('click', () => {
+      // Cuando abres uno, cerramos todos los demás
+      todosLosDetails.forEach((detail) => {
+        if (detail !== targetDetail) {
+          detail.removeAttribute('open');
+        }
+      });
+    });
+  });
+</script>
 
 </body>
 </html>
